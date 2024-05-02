@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant browser
+    participant server
+    
+    Note right of browser: User enters a new note in the textfield and clicks the save button
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: JSON document
+    deactivate server
+
+    Note right of browser: Server responds with status code 201 Created, and the JSON with a confirmation
+    Note right of browser: New note renders in the HTML doc after successful server response
